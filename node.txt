@@ -1,0 +1,5 @@
+    to install node globally 
+ npm install -g nodemon
+ npm init   //  to create package.json
+ npm i -g npm // to update npm
+ npm i --save lodash // to install lodash _.chunk()
