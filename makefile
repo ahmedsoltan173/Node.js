@@ -3,7 +3,8 @@
 # Run the server
 run:
 	@echo "Starting server..."
-	@node server.js
+	# @node app.js
+	@nodemon app
 
 # Install dependencies
 install:
