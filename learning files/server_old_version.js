@@ -14,11 +14,11 @@ const server = http.createServer((req, res) => {
     let path='./views';
     switch(req.url){
         case '/':
-            path+='/index.html';
+            path+='/index.ejs';
             res.statusCode=200; // set the status code of the respose 
             break;
         case '/about':
-            path+='/about.html';
+            path+='/about.ejs';
             res.statusCode=200;
             break;
         case '/about-me': // about the about.me will be redirect to about 

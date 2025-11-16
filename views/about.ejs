@@ -1,19 +1,109 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('./partials/header.ejs') %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>about</title>
-</head>
+    <body>
+        <h1>About <%= name %>
+        </h1>
+        <p>
+            <%= message %>
+        </p>
+        <a href="/">Index</a>
+        <div>
+            <table>
 
-<body>
-    <h1>About <%= name %>
-    </h1>
-    <p>
-        <%= message %>
-    </p>
-    <a href="/">Index</a>
-</body>
+                <head>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Snippet
+                    </th>
+                    <th>
+                        Body
+                    </th>
+                </head>
+                <tbody>
+                    <% if(blogs.length > 0){
+                        blogs.forEach(blog=>{ %>
+                        <tr>
+                            <td>
+                                <%= blog.title %>
+                            </td>
+                            <td>
+                                <%= blog.snippet %>
+                            </td>
+                            <td>
+                                <%= blog.body %>
+                            </td>
+                        </tr>
 
-</html>
+                        <% }) %>
+                            <% } %>
+                </tbody>
+            </table>
+        </div>
+
+
+
+        <div class="create-blog content">
+            <form action="/blogs" method="POST">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="snippet">Snippet:</label>
+                <input type="text" id="snippet" name="snippet" required>
+
+                <label for="body">Body:</label>
+                <textarea id="body" name="body" required></textarea>
+
+                <button type="submit">Create Blog</button>
+            </form>
+        </div>
+    </body>
+
+    </html>
+
+
+    <style>
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .create-blog label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        .create-blog input,
+        .create-blog textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        .create-blog button {
+            margin-top: 15px;
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .create-blog button:hover {
+            background-color: #218838;
+        }
+
+        .title {
+            color: blue;
+        }
+
+        .snippet {
+            color: green;
+        }
+    </style>
